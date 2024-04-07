@@ -19,7 +19,7 @@ module.exports = (app) => {
 
   app.use(
     cors({
-      origin: ["http://localhost:5173","https://travelapp-experience.netlify.app"],
+      origin: ["http://localhost:5173","https://travelapp-experience.netlify.app", https://trvl-kbn4.onrender.com, https://travel-fe.netlify.app],
     })
   );
 
