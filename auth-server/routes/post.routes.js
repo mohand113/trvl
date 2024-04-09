@@ -42,8 +42,8 @@ router.get("/posts", (req, res, next) => {
         posts.map( async (post) => {
 		const res = await User.findById(post.author);
 		post.username = res.data.username;
-            };
-  res.json(allposts);
+            });
+      res.json(allposts);
     })
     .catch((err) => {
       console.log("Error while getting the postss", err);
