@@ -44,9 +44,9 @@ router.get("/posts", (req, res, next) => {
 		const res = await User.findById(post.author);
 		Aposts.push([post,res.username]);
 	//	post.username = res.username;
-		console.log(Aposts);
+	//	console.log(Aposts);
             });
-      res.json(allposts);
+      res.json(Aposts);
     })
     .catch((err) => {
       console.log("Error while getting the postss", err);
