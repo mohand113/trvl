@@ -41,15 +41,15 @@ router.get("/posts", (req, res, next) => {
     // .populate("comments")
     .then((allposts, res1) => {
         let posts = allposts;
-        posts.map( async (post) => {
+        let names[] = posts.map( async (post) => {
 		let tmp = await User.findById(post.author);
 //		Aposts.push([post, res.username]);
-		res1 = tmp;
+		return(tmp.username);
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      console.log(typeof(allposts), allposts.length);
-	  console.log(res1);
+      console.log(nanes);
+	//  console.log(res1);
 	  res.json(allposts);
     })
     .catch((err) => {
