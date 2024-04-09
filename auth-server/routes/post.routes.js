@@ -46,7 +46,8 @@ router.get("/posts", (req, res, next) => {
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      res.json(Aposts);
+      console.log(Aposts);
+	  res.json(allposts);
     })
     .catch((err) => {
       console.log("Error while getting the postss", err);
