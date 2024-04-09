@@ -44,7 +44,7 @@ router.get("/posts", (req, res, next) => {
 		const res = await User.findById(post.author);
 		Aposts.append([post,res.username]);
 	//	post.username = res.username;
-		console.log(Apost);
+		console.log(Aposts);
             });
       res.json(allposts);
     })
