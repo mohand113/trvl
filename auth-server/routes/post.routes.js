@@ -48,7 +48,7 @@ router.get("/posts", (req, res, next) => {
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      console.log(nanes);
+      console.log(names);
 	//  console.log(res1);
 	  res.json(allposts);
     })
