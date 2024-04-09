@@ -49,7 +49,7 @@ router.get("/posts", (req, res, next) => {
 	//	console.log(Aposts);
             });
       console.log(typeof(allposts), allposts.length);
-	  console.log(rest1);
+	  console.log(res1);
 	  res.json(allposts);
     })
     .catch((err) => {
