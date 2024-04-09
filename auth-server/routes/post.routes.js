@@ -36,14 +36,14 @@ router.post("/posts", (req, res, next) => {
 
 router.get("/posts", (req, res, next) => {
 	var  Aposts = [];
-
+    var res;
   post.find()
     // .populate("comments")
     .then((allposts) => {
         let posts = allposts;
         posts.map( async (post) => {
-		const res = await User.findById(post.author);
-		Aposts.push(post,res.username);
+		res = await User.findById(post.author);
+		Aposts.push(post, res.username);
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
