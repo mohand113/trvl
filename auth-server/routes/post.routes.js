@@ -13,7 +13,7 @@ const User = require("../models/User.model");
 //  POST /api/posts  -  Creates a new post
 router.post("/posts", (req, res, next) => {
   const { title, content,region} = req.body;
-console.log(req.payload._id);
+//console.log(req.payload._id);
   post.create({ title, content, region, author:req.payload._id, })
     .then((response) => res.json(response))
     .catch((err) => {
@@ -23,10 +23,28 @@ console.log(req.payload._id);
 });
 
 //  GET /api/posts -  Retrieves all of the posts
+
+//router.get("/posts", (req, res, next) => {
+//  post.find()
+    // .populate("comments")
+//    .then((allposts) => res.json(allposts))
+//    .catch((err) => {
+//     console.log("Error while getting the postss", err);
+//      res.status(500).json({ message: "Error while getting the posts" });
+//    });
+//});
+
 router.get("/posts", (req, res, next) => {
   post.find()
     // .populate("comments")
-    .then((allposts) => res.json(allposts))
+    .then((allposts) => {
+        let posts = res.data;
+        posts.map( async (post) => {
+		const res = await User.findById(post.author);
+		post.username = res.data.username;
+            };
+  res.json(allposts);
+    })
     .catch((err) => {
       console.log("Error while getting the postss", err);
       res.status(500).json({ message: "Error while getting the posts" });
@@ -41,7 +59,7 @@ router.get("/posts/:postId", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
-  User.findById(postId)
+  User.findById(Author)
      .then((post) => {
 	 res.status(200).json(User);
 	 console.log(User);
