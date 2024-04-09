@@ -42,13 +42,14 @@ router.get("/posts", (req, res, next) => {
     .then((allposts, res1) => {
         let posts = allposts;
         posts.map( async (post) => {
-		let res = await User.findById(post.author);
+		let tmp = await User.findById(post.author);
 //		Aposts.push([post, res.username]);
-		res1 = res;
+		res1 = tmp;
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      console.log(allposts);
+      console.log(typeof(allposts), allposts.length());
+	  console.log(rest1);
 	  res.json(allposts);
     })
     .catch((err) => {
