@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 const post = require("../models/Post.model");
 const comment = require("../models/Comment.model");
+const User = require("../models/User.model");
 
 //  POST /api/posts  -  Creates a new post
 router.post("/posts", (req, res, next) => {
@@ -40,7 +41,12 @@ router.get("/posts/:postId", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
-
+  User.findById(postId)
+     .then((post) => res.status(200).json(User))
+	 .catch((err) => {
+      console.log("Error while retrieving the author", err);
+      res.status(500).json({ message: "Error while retrieving the Author" });
+	  });
   // Each post document has `tasks` array holding `_id`s of Task documents
   // We use .populate() method to get swap the `_id`s for the actual Task documents
   post.findById(postId)
