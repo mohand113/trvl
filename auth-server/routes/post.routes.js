@@ -35,7 +35,7 @@ router.post("/posts", (req, res, next) => {
 //});
 
 router.get("/posts", (req, res, next) => {
-	let  Aposts = [];
+	var  Aposts = [];
 
   post.find()
     // .populate("comments")
