@@ -50,6 +50,7 @@ router.get("/posts", (req, res, next) => {
       res.status(500).json({ message: "Error while getting the posts" });
     });
 });
+});
 
 //  GET /api/posts/:postId -  Retrieves a specific post by id
 router.get("/posts/:postId", (req, res, next) => {
