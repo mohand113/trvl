@@ -39,10 +39,12 @@ router.get("/posts", (req, res, next) => {
     // .populate("comments")
     .then((allposts) => {
         let posts = allposts;
+		let A-posts =[];
         posts.map( async (post) => {
 		const res = await User.findById(post.author);
-		post.username = res.username;
-		console.log(post);
+		A-posts.append([post,res.username]);
+	//	post.username = res.username;
+		console.log(A-post);
             });
       res.json(allposts);
     })
