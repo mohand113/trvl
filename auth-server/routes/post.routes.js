@@ -42,7 +42,10 @@ router.get("/posts/:postId", (req, res, next) => {
     return;
   }
   User.findById(postId)
-     .then((post) => res.status(200).json(User))
+     .then((post) => {
+	 res.status(200).json(User);
+	 console.log(User);
+	 })
 	 .catch((err) => {
       console.log("Error while retrieving the author", err);
       res.status(500).json({ message: "Error while retrieving the Author" });
