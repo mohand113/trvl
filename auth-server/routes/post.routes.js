@@ -47,7 +47,7 @@ router.get("/posts", (req, res, next) => {
 //		Aposts.push([post, res.username]);
 //		post['username'] = tmp.username;
         console.log(post);
-		return(tmp.username);
+//		return(tmp.username);
 	//	post.username = res.username;
 	//	console.log(Aposts);
 	    console.log(names);
