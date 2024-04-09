@@ -35,7 +35,7 @@ router.post("/posts", (req, res, next) => {
 //});
 
 router.get("/posts", (req, res, next) => {
-	var  Aposts = [];
+	var  Aposts = ['allo', 'falo'];
     var res;
   post.find()
     // .populate("comments")
@@ -47,7 +47,7 @@ router.get("/posts", (req, res, next) => {
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      console.log(res.username);
+      console.log(Aposts);
 	  res.json(allposts);
     })
     .catch((err) => {
