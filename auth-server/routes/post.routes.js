@@ -48,7 +48,7 @@ router.get("/posts", (req, res, next) => {
 	//	post.username = res.username;
 	//	console.log(Aposts);
             });
-      console.log(typeof(allposts), allposts.length());
+      console.log(typeof(allposts), allposts.length);
 	  console.log(rest1);
 	  res.json(allposts);
     })
