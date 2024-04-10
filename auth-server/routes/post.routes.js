@@ -35,7 +35,7 @@ router.post("/posts", (req, res, next) => {
 //});
 
 router.get("/posts", (req, res, next) => {
-
+var Aposts = [];
   post.find()
     // .populate("comments")
     .then((allposts) => {
@@ -43,22 +43,29 @@ router.get("/posts", (req, res, next) => {
         posts.map( async (post) => {
 	//	let tmp = await User.findById(post.author);
 		post['username'] = await User.findById(post.author);
+		Aposts.push(post);
 //		Aposts.push([post, res.username]);
 //		post['username'] = tmp.username;
-        console.log(post);
+//        console.log(post);
 //		return(tmp.username);
 	//	post.username = res.username;
 	//	console.log(Aposts);
 	//    console.log(names);
             });
 //      console.log(names);
-	  console.log(allposts);
+//	  console.log(allposts);
+	  whendone();
 	  res.json(allposts);
     })
     .catch((err) => {
       console.log("Error while getting the postss", err);
       res.status(500).json({ message: "Error while getting the posts" });
     });
+
+function whenDone() {
+    //you should be able to access fixedItems here
+	console.log(Aposts);
+}
 });
 
 
