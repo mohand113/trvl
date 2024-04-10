@@ -33,9 +33,9 @@ router.post("/posts", (req, res, next) => {
 //      res.status(500).json({ message: "Error while getting the posts" });
 //    });
 //});
+var Aposts = [];
 
 router.get("/posts", (req, res, next) => {
-var Aposts = [];
   post.find()
     // .populate("comments")
     .then((allposts) => {
@@ -62,13 +62,13 @@ var Aposts = [];
       res.status(500).json({ message: "Error while getting the posts" });
     });
 
+
+});
+
 function whenDone() {
     //you should be able to access fixedItems here
 	console.log(Aposts);
 }
-});
-
-
 //  GET /api/posts/:postId -  Retrieves a specific post by id
 router.get("/posts/:postId", (req, res, next) => {
   const { postId } = req.params;
