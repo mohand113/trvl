@@ -74,7 +74,8 @@ router.get("/posts", (req, res, next) => {
 function whenDone() {
     //you should be able to access fixedItems here
 	console.log(Aposts);
-	//console.log(name);
+	console.log(upost);
+	console.log(name);
 }
 //  GET /api/posts/:postId -  Retrieves a specific post by id
 router.get("/posts/:postId", (req, res, next) => {
