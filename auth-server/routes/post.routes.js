@@ -54,7 +54,7 @@ var Aposts = [];
             });
 //      console.log(names);
 //	  console.log(allposts);
-	  whendone();
+	  whenDone();
 	  res.json(allposts);
     })
     .catch((err) => {
