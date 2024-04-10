@@ -47,7 +47,7 @@ router.get("/posts", (req, res, next) => {
 		let nom = await User.findById(post.author);
 		upost = post;
 		name = nom.username;
-		upost['user'] = name;
+		upost.user = name;
 		Aposts.push(upost);
 		
 //		Aposts.push([post, res.username]);
