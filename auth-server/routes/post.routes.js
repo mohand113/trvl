@@ -35,7 +35,7 @@ router.post("/posts", (req, res, next) => {
 //});
 var Aposts = [];
 var upost =[];
-var name;
+var name = [];
 
 router.get("/posts", (req, res, next) => {
   post.find()
@@ -45,9 +45,8 @@ router.get("/posts", (req, res, next) => {
         posts.map( async (post) => {
 	//	let tmp = await User.findById(post.author);
 		let nom = await User.findById(post.author);
-		upost = post;
-		upost.user = nom.username;
-		Aposts.push(upost);
+		name.push(nom.username);
+		Aposts.push(post);
 		
 //		Aposts.push([post, res.username]);
 //		post['username'] = tmp.username;
@@ -73,7 +72,7 @@ router.get("/posts", (req, res, next) => {
 function whenDone() {
     //you should be able to access fixedItems here
 	console.log(Aposts);
-	console.log(upost);
+//	console.log(upost);
 	console.log(name);
 }
 //  GET /api/posts/:postId -  Retrieves a specific post by id
