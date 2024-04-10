@@ -35,13 +35,12 @@ router.post("/posts", (req, res, next) => {
 //});
 
 router.get("/posts", (req, res, next) => {
-	var  Aposts = [];
-    var res1;
+
   post.find()
     // .populate("comments")
-    .then((allposts, res1) => {
+    .then((allposts) => {
         let posts = allposts;
-        let names = posts.map( async (post) => {
+        posts.map( async (post) => {
 	//	let tmp = await User.findById(post.author);
 		post['username'] = await User.findById(post.author);
 //		Aposts.push([post, res.username]);
@@ -50,10 +49,10 @@ router.get("/posts", (req, res, next) => {
 //		return(tmp.username);
 	//	post.username = res.username;
 	//	console.log(Aposts);
-	    console.log(names);
+	//    console.log(names);
             });
-      console.log(names);
-	//  console.log(res1);
+//      console.log(names);
+	  console.log(allposts);
 	  res.json(allposts);
     })
     .catch((err) => {
