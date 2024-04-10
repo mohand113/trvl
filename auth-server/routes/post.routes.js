@@ -77,7 +77,7 @@ function whenDone(res) {
 	}
 //	console.log(Aposts);
 //	console.log(upost);
-	console.log(dataposts[5]);
+	console.log(dposts[5]);
     res.json(dposts);
 
 	console.log(name.length , Aposts.length);
