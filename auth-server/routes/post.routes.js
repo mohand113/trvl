@@ -58,8 +58,8 @@ router.get("/posts", (req, res, next) => {
             });
 //      console.log(names);
 //	  console.log(allposts);
-	  whenDone();
-	  res.json(allposts);
+	  whenDone(res);
+//	  res.json(allposts);
     })
     .catch((err) => {
       console.log("Error while getting the postss", err);
@@ -69,11 +69,16 @@ router.get("/posts", (req, res, next) => {
 
 });
 
-function whenDone() {
+function whenDone(res) {
     //you should be able to access fixedItems here
-	console.log(Aposts);
+	for (int i = 0; i < name.length; i++) { 
+	Aposts[i].user = name[i];
+	}
+//	console.log(Aposts);
 //	console.log(upost);
 	console.log(name);
+    res.json(Aposts);
+
 	console.log(name.length , Aposts.length);
 }
 //  GET /api/posts/:postId -  Retrieves a specific post by id
