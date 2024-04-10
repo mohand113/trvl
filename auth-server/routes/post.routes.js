@@ -44,9 +44,10 @@ router.get("/posts", (req, res, next) => {
         posts.map( async (post) => {
 	//	let tmp = await User.findById(post.author);
 		let nom = await User.findById(post.author);
+		let upost = post;
 		name = nom.username;
-		post['user'] = name;
-		Aposts.push(post);
+		upost['user'] = name;
+		Aposts.push(upost);
 		
 //		Aposts.push([post, res.username]);
 //		post['username'] = tmp.username;
