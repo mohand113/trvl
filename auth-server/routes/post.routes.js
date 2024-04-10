@@ -71,7 +71,7 @@ router.get("/posts", (req, res, next) => {
 
 function whenDone(res) {
     //you should be able to access fixedItems here
-	for (int i = 0; i < name.length; i++) { 
+	for ( i = 0; i < name.length; i++) { 
 	Aposts[i].user = name[i];
 	}
 //	console.log(Aposts);
