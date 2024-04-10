@@ -74,6 +74,7 @@ function whenDone() {
 	console.log(Aposts);
 //	console.log(upost);
 	console.log(name);
+	console.log(name.length , Aposts.length);
 }
 //  GET /api/posts/:postId -  Retrieves a specific post by id
 router.get("/posts/:postId", (req, res, next) => {
